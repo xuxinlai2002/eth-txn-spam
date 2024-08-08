@@ -5,7 +5,10 @@ PARALLELISM=$2
 RANGE=$3
 MODE=$4
 
-readarray -t mnemonics < ./mnemonics
+
+# readarray -t mnemonics < ./mnemonics
+mnemonics="gasp draft system trust solid immune champion night vehicle hero intact damp"
+
 
 COUNT=0
 

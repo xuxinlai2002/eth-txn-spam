@@ -1,0 +1,6 @@
+rpcUrl : https://arb.nirvanalabs.xyz/arbmain-t88g3?apikey=ee9895eb7c874f9652ce5c22f96670ff899c
+error number is : 1
+no data number is : 1
+no data average time is : 1015
+get data number is : 1
+get data average time is : 3662

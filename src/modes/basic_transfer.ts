@@ -2,7 +2,7 @@ import { JsonRpcProvider } from "@ethersproject/providers";
 import { Wallet } from "ethers";
 import { formatEther, parseUnits } from "ethers/lib/utils";
 
-const sendAmount = parseUnits("0.001", 18);
+const sendAmount = parseUnits("0.000001", 18);
 
 export async function basicTransferLoop(
   mnemonic: string,
@@ -20,16 +20,25 @@ export async function basicTransferLoop(
       mnemonic,
       `m/44'/60'/0'/0/${index + 1 > range ? 0 : index + 1}`
     ).connect(new JsonRpcProvider(rpcUrl));
+
     console.log(
-      `Sending ${formatEther(sendAmount)} to ${recipient.address} from ${index}`
+      `Sending1 ${formatEther(sendAmount)} to ${recipient.address} from ${index}`
     );
+
+    console.log("xxl : from address is : ",wallet.address);
+    console.log("xxl : to   address is : ",wallet.address);
+
     const txn = await wallet.sendTransaction({
       value: sendAmount,
       to: recipient.address,
       gasLimit: 100000,
-      gasPrice: parseUnits("1", "gwei"),
+      gasPrice: parseUnits("0.1", "gwei"),
       nonce,
     });
+
+    console.log("xxl : to   txn is : ",txn);
+
+
     console.log(
       `Done sending ${formatEther(sendAmount)} to ${
         recipient.address
